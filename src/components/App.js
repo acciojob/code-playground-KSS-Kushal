@@ -1,7 +1,7 @@
 
 import React from "react";
 import './../styles/App.css';
-import { Route, Routes } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import {useState} from 'react'
 import Login from "./Login";
@@ -13,12 +13,12 @@ const App = () => {
         {/* Do not remove the main div */}
         <p>{isLogin?"Logged in, Now you can enter Playground":"You are not authenticated, Please login first"}</p>
         <ul>
-          <li>PlayGround</li>
-          <li>Login</li>
+          <li><Link to={'/play'}>PlayGround</Link></li>
+          <li><Link to={'/'}>Login</Link></li>
         </ul>
         <Routes>
           <Route path="/play" element={<PrivateRoute isLogin={isLogin} />} />
-          <Route path="/login" element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route path="/" element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
     </div>
   )
