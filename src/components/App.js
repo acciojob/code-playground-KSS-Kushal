@@ -13,12 +13,12 @@ const App = () => {
         {/* Do not remove the main div */}
         <p>{isLogin?"Logged in, Now you can enter Playground":"You are not authenticated, Please login first"}</p>
         <ul>
-          <li><Link to={'/play'}>PlayGround</Link></li>
-          <li><Link to={'/'}>Login</Link></li>
+          <li><Link to={'/'}>PlayGround</Link></li>
+          <li><Link to={'/login'}>Login</Link></li>
         </ul>
         <Routes>
-          <Route path="/play" element={<PrivateRoute isLogin={isLogin} />} />
-          <Route path="/" element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route path="/" element={<PrivateRoute isLogin={isLogin} />} />
+          <Route path="/login" element={<Login isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
     </div>
   )
